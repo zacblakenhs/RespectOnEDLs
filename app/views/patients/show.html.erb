@@ -1,2 +1,18 @@
-<h1>Patients#show</h1>
-<p>Find me in app/views/patients/show.html.erb</p>
+<h1>
+  <%= @patient.details %>
+</h1>
+
+<% if @patient.admissions.empty? %>
+  <div>
+    This patient has not had any admissions.  You can create one below.  
+  </div>
+<% else %>
+  <% @complete_admissions.each do |a| %>
+      <%= render partial: 'admissions/completed_details', locals: {a: a} %>
+  <% end %>
+  <% @active_admissions.each do |a| %>
+    <%= render partial: 'admissions/active_details', locals: {a: a} %>
+  <% end %> 
+<% end %>
+
+<%= link_to "Create Admission for this patient", new_patient_admission_path(@patient), class: "btn btn-primary"%>

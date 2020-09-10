@@ -1,2 +1,31 @@
-<h1>Admissions#new</h1>
-<p>Find me in app/views/admissions/new.html.erb</p>
+<h2>New Admission for <%= @patient.details %></h2>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for [@patient, @admission], local: true do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <div>
+        <%= f.label :admit_time, "Admission Time" %>  
+      </div>
+      <div>
+        <%= f.text_field :admit_time, readonly: true, class: 'form-control' %>
+      </div>
+     
+      <div>
+        <%= f.label :consultant_id, "Consultant" %>
+      </div>
+      <div>
+        <%= f.select :consultant_id, Consultant.all.collect {|u| [u.longname, u.id]}, :prompt => 'Select', class: 'form-control' %>
+      </div>
+      <div>
+        <%= f.label :ward  %>
+      </div>
+      <div>
+        <%= f.select :ward, options_for_select(["Ash", "Oak", "Elm"], "Elm"), class: 'form-control' %>
+      </div>
+     
+      <div>
+        <%= f.submit class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

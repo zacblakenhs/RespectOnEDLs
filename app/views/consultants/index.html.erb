@@ -1,0 +1,14 @@
+<h1>Consultants</h1>
+<% if @consultants.empty? %>
+  <div>
+    There are no test consultants yet, please create one using the button below.
+  </div>
+<% else %>
+  <% @consultants.each do |c| %>
+    <div>
+      <%= c.details %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= link_to "Create New Consultant", new_consultant_path, class: "btn btn-primary"%>

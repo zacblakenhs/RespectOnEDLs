@@ -1,2 +1,45 @@
-<h1>Consultants#new</h1>
-<p>Find me in app/views/consultants/new.html.erb</p>
+<h1>New Test Patient</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for @consultant, local: true do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <div>
+        <%= f.label :title %>
+      </div>
+      <div>
+        <%= f.select :title, options_for_select(["Dr", "Mr", "Mrs"], "Dr"), class: 'form-control' %>
+      </div>
+      <div>
+        <%= f.label :firstname, "First Name" %>
+      </div>
+      <div>
+        <%= f.text_field :firstname, class: 'form-control' %>
+      </div>
+
+      <div>
+        <%= f.label :surname, "Surname"%>  
+      </div>
+      <div>
+        <%= f.text_field :surname, class: 'form-control'  %>
+      </div>
+     
+      <div>
+        <%= f.label :specialty %>
+      </div>
+      <div>
+        <%= f.text_field :specialty, class: 'form-control' %>
+      </div>
+
+      <div>
+        <%= f.label :discipline %>  
+      </div>
+      <div>
+        <%= f.select :discipline, options_for_select(["Surgery", "Medicine", "Psychiatry"], "Medicine"), class: 'form-control'  %>
+      </div>
+     
+      <div>
+        <%= f.submit class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

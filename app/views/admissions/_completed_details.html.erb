@@ -1,0 +1,17 @@
+<div class="row mt-2">
+  <div class="col-3">
+    Admission <% a.ward.capitalize %> Ward
+  </div>
+  <div class="col-3">
+    <%= a.consultant.details %>
+  </dov>
+  <div class="col-3">
+    <div>
+      <%= a.admit_time.strftime("Admitted %d%b%Y")%>
+    </div>
+    <div>
+      <%= a.discharge_time.strftime("Discharged %d%b%Y")%>
+    </div>
+  </div>
+
+</div>

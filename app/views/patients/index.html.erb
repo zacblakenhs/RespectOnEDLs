@@ -6,8 +6,8 @@
 <% else %>
   Test Patients
   <% @patients.each do |p| %>
-    <%= link_to p.details, patient_path(p), class: "btn" %>
+    <%= link_to p.details, patient_path(p), class: "btn btn-large mt-5" %>
   <% end %>
 <% end %>
 
-<%= link_to "Create New Test Patient", new_patient_path, class: "btn new"%>
+<%= link_to "Create New Test Patient", new_patient_path, class: "btn btn-primary"%>

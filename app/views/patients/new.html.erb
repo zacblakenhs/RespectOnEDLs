@@ -1,47 +1,48 @@
 <h1>New Test Patient</h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_with(model: @patient, local: true) do |f| %>
+    <%= form_for @patient, local: true do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
       <div>
         <%= f.label :nhsno, "NHS Number" %>  
       </div>
       <div>
-        <%= f.text_field :nhsno, disabled: true %>
+        <%= f.text_field :nhsno, readonly: true, class: 'form-control' %>
       </div>
      
       <div>
         <%= f.label :firstname, "First Name" %>
       </div>
       <div>
-        <%= f.text_field :firstname %>
+        <%= f.text_field :firstname, class: 'form-control' %>
       </div>
   
       <div>
         <%= f.label :preferred_name, "Preferred Name" %>  
       </div>
       <div>
-        <%= f.text_field :preferred_name %>
+        <%= f.text_field :preferred_name, class: 'form-control' %>
       </div>
      
       <div>
         <%= f.label :surname, "Surname"%>  
       </div>
       <div>
-        <%= f.text_field :surname, disabled: true  %>
+        <%= f.text_field :surname, readonly: true, class: 'form-control'  %>
       </div>
      
       <div>
        <%= f.label :dob, "Date of Birth" %>
       </div>
       <div>
-        <%= f.date_select :dob, disabled: true %>
+        <%= f.date_select :dob, readonly: true, class: 'form-control' %>
       </div>
       
       <div>
         <%= f.label :gender, "Gender" %>
       </div>
       <div>
-        <%= f.select :gender, options_for_select(["Male", "Female"], "Male") %>
+        <%= f.select :gender, options_for_select(["Male", "Female"], "Male"), class: 'form-control' %>
       </div>
      
       <div>

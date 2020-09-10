@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_10_111214) do
+ActiveRecord::Schema.define(version: 2020_09_10_170825) do
 
   create_table "admissions", force: :cascade do |t|
     t.integer "patient_id", null: false
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 2020_09_10_111214) do
     t.string "medication"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "admission_id"
+    t.index ["admission_id"], name: "index_edls_on_admission_id"
   end
 
   create_table "patients", force: :cascade do |t|
@@ -75,8 +77,15 @@ ActiveRecord::Schema.define(version: 2020_09_10_111214) do
     t.string "decisionmakers"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "admission_id"
+    t.integer "patient_id"
+    t.index ["admission_id"], name: "index_respectforms_on_admission_id"
+    t.index ["patient_id"], name: "index_respectforms_on_patient_id"
   end
 
   add_foreign_key "admissions", "consultants"
   add_foreign_key "admissions", "patients"
+  add_foreign_key "edls", "admissions"
+  add_foreign_key "respectforms", "admissions"
+  add_foreign_key "respectforms", "patients"
 end
