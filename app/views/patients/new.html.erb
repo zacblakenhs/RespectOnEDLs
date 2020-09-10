@@ -1,0 +1,55 @@
+<h1>New Test Patient</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with(model: @patient, local: true) do |f| %>
+      <div>
+        <%= f.label :nhsno, "NHS Number" %>  
+      </div>
+      <div>
+        <%= f.text_field :nhsno, disabled: true %>
+      </div>
+     
+      <div>
+        <%= f.label :firstname, "First Name" %>
+      </div>
+      <div>
+        <%= f.text_field :firstname %>
+      </div>
+  
+      <div>
+        <%= f.label :preferred_name, "Preferred Name" %>  
+      </div>
+      <div>
+        <%= f.text_field :preferred_name %>
+      </div>
+     
+      <div>
+        <%= f.label :surname, "Surname"%>  
+      </div>
+      <div>
+        <%= f.text_field :surname, disabled: true  %>
+      </div>
+     
+      <div>
+       <%= f.label :dob, "Date of Birth" %>
+      </div>
+      <div>
+        <%= f.date_select :dob, disabled: true %>
+      </div>
+      
+      <div>
+        <%= f.label :gender, "Gender" %>
+      </div>
+      <div>
+        <%= f.select :gender, options_for_select(["Male", "Female"], "Male") %>
+      </div>
+     
+      <div>
+        <%= f.submit class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
