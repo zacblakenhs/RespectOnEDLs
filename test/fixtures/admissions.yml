@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  patient: one
+  consultant: one
+  admit_time: 2020-09-10
+  discharge_time: 2020-09-10
+  ward: MyString
+
+two:
+  patient: two
+  consultant: two
+  admit_time: 2020-09-10
+  discharge_time: 2020-09-10
+  ward: MyString

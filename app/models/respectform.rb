@@ -1,0 +1,2 @@
+class Respectform < ApplicationRecord
+end

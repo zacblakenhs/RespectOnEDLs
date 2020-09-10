@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  completion_date: 2020-09-10
+  clin_comms_bkgrnd: MyString
+  life_v_comfort_score: 1
+  patient_priorities: MyString
+  clin_guidance: MyString
+  CPR_recommended: false
+  modified_CPR: false
+  pt_capacity: false
+  pt_involvement: 1
+  involvement_info: MyString
+  decisionmakers: MyString
+
+two:
+  completion_date: 2020-09-10
+  clin_comms_bkgrnd: MyString
+  life_v_comfort_score: 1
+  patient_priorities: MyString
+  clin_guidance: MyString
+  CPR_recommended: false
+  modified_CPR: false
+  pt_capacity: false
+  pt_involvement: 1
+  involvement_info: MyString
+  decisionmakers: MyString

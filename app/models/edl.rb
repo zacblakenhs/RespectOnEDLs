@@ -1,0 +1,2 @@
+class Edl < ApplicationRecord
+end
