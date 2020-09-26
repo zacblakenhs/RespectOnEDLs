@@ -1,0 +1,43 @@
+<% if a.completed? %>
+
+ show link to pdf of edl (which contains respect information)
+ show icon if respect information is present from this admission  (click to print - remind user to set print on both sides.  
+                                                                   allow reprint respect form with js popup warning).  
+                                                                   tooltip pointing to edl for details.  
+<% else %>
+    <div class="col-xs-6">
+      <% if a.respectforms.count > 0 %>
+        <div class="respectarea">
+          <div class="row">
+            <%= image_tag("respectlogo.png") %>
+          </div> 
+          <div class="row">
+            <%= link_to image_tag("respectform_icon.png"),"#" %>
+          </div>
+        </div>
+      <% else %>
+          <%= link_to image_tag("respectplus.png", class: "respectplus"), new_patient_admission_respectform_path(a.patient, a) %>
+      <% end %>
+    </div>
+  <!--      unless respect form present for this admission-->
+  <!--new Respect form button  -->
+  <!--    (on create respect form, copy from either EDL info or from previous respect form (latter preferred), then force update status on EDL).  -->
+  <!--    js alert if already has respect form this admission -->
+  <!--show icon(s) if respect information is present from this admission (click to print - remind user to set print on both sides.  -->
+  <!--                                                                 allow reprint respect form with js popup warning).  -->
+  <!--                                                                 tooltip pointing to edl for details. -->
+    <div class="col-xs-3">
+      <% unless a.edl %>
+        <%= link_to "Create EDL", new_patient_admission_edl_path(a.patient, a), class: "btn btn-primary" %>
+      <% else %>
+        <%= link_to "Edit EDL", edit_patient_admission_edl(a.patient, a, a.edl), class: "btn btn-primary" %>
+      <% end %>
+    </div>
+    <div class="col-xs-3">
+      <% unless a.edl %>
+        Create an EDL to discharge this patient
+      <% else %>
+        <%= link_to "Discharge Patient", "#", class: "btn btn-danger" %>
+      <% end %>
+    </div>
+<% end %>

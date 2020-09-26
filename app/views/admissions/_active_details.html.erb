@@ -1,21 +1,19 @@
-<div class="row mt-2">
-  <div class="col-3">
-    Admission <% a.ward.capitalize %> Ward
-  </div>
-  <div class="col-3">
-    <%= a.consultant.details %>
-  </dov>
-  <div class="col-3">
-    <div>
-      <%= a.admit_time.strftime("Admitted %d%b%Y")%>
+<div class="row listbox">
+  <div class="row">
+    <div class="col-xs-6 listbox-title">
+      Admission: <%= a.ward.capitalize %> Ward
     </div>
-    <div>
-      Currently an Inpatient
+    <div class="col-xs-6">
+      <%= a.consultant.details %>
     </div>
   </div>
-  <div class="col-3">
+  <div class="row listbox-middle">
+    <div class="col-xs-6">
+      <%= a.admit_time.strftime("Admitted %d %b %Y")%>
+      - Currently an Inpatient
+    </div>
+  </div>
+  <div class="row listbox-footer">
     <%= render partial: "admissions/document_management", locals: {a: a} %>
-  </dov>
-  
-
+  </div>
 </div>

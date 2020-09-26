@@ -1,12 +1,20 @@
+<h1>Test Patients</h1>
 
 <% if @patients.empty? %>
   <div>
     There are no test patients to demonstrate, please create one using the button below.
   </div>
 <% else %>
-  Test Patients
+
   <% @patients.each do |p| %>
-    <%= link_to p.details, patient_path(p), class: "btn btn-large mt-5" %>
+    <div class="row vertical-align listbox">
+      <div>
+      <%= image_tag "person.png"%>
+      </div>
+      <div>
+        <%= link_to p.details, patient_path(p), class: "btn btn-default" %>
+      </div>
+    </div>
   <% end %>
 <% end %>
 

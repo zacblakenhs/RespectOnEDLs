@@ -6,13 +6,14 @@ class Patient < ApplicationRecord
   validates :nhsno, presence: true
   
   has_many :admissions
+  has_many :respectforms
   
   def details
     nhsno.to_s + " - " + fullname + " - " + dob.strftime("DOB: %m/%d/%Y")
   end
     
   def fullname 
-    firstname + " " +surname  
+    firstname + " " + surname  
   end 
   
 end

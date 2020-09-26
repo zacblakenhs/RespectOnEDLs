@@ -1,10 +1,10 @@
 <div class="row mt-2">
-  <div class="col-3">
+  <div class="card-title">
     Admission <% a.ward.capitalize %> Ward
   </div>
-  <div class="col-3">
+  <div class="card-body>
     <%= a.consultant.details %>
-  </dov>
+  </div>
   <div class="col-3">
     <div>
       <%= a.admit_time.strftime("Admitted %d%b%Y")%>
@@ -12,6 +12,9 @@
     <div>
       <%= a.discharge_time.strftime("Discharged %d%b%Y")%>
     </div>
+  </div>
+  <div class="col-3">
+    <%= render partial: "admissions/document_management", locals: {a: a} %>
   </div>
 
 </div>

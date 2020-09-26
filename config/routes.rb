@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :patients, only: [:new, :create, :index, :show] do
     resources :admissions, only: [:new, :create, :show, :edit, :update] do
       resources :respectforms, only: [:new, :create, :show, :edit, :update, :print]
-      resources :edl, only: [:new, :create, :show, :edit, :update]
+      resources :edls, only: [:new, :create, :show, :edit, :update]
     end
   end
   resources :consultants, only: [:new, :create, :index]

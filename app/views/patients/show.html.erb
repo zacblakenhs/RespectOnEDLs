@@ -1,18 +1,22 @@
 <h1>
   <%= @patient.details %>
 </h1>
-
-<% if @patient.admissions.empty? %>
-  <div>
-    This patient has not had any admissions.  You can create one below.  
-  </div>
-<% else %>
-  <% @complete_admissions.each do |a| %>
-      <%= render partial: 'admissions/completed_details', locals: {a: a} %>
+  <% if @patient.admissions.empty? %>
+    <div>
+      This patient has not had any admissions.  You can create one below.  
+    </div>
+  <% else %>
+    <% @complete_admissions.each do |a| %>
+      <div>
+        <%= render partial: 'admissions/completed_details', locals: {a: a} %>
+      </div>
+    <% end %>
+    <% @active_admissions.each do |a| %>
+      <div class="card">
+        <%= render partial: 'admissions/active_details', locals: {a: a} %>
+      </div>
+    <% end %> 
   <% end %>
-  <% @active_admissions.each do |a| %>
-    <%= render partial: 'admissions/active_details', locals: {a: a} %>
-  <% end %> 
-<% end %>
-
-<%= link_to "Create Admission for this patient", new_patient_admission_path(@patient), class: "btn btn-primary"%>
+  <% if @active_admissions.empty? %>
+    <%= link_to "Create Admission for this patient", new_patient_admission_path(@patient), class: "btn btn-primary"%>
+  <% end %>
